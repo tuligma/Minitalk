@@ -6,11 +6,11 @@
 /*   By: npentini <npentini@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 03:08:45 by npentini          #+#    #+#             */
-/*   Updated: 2024/06/20 04:20:48 by npentini         ###   ########.fr       */
+/*   Updated: 2024/06/21 04:11:44 by npentini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./minitalk.h"
+#include "../includes/minitalk.h"
 
 int	ft_atoi(const char *nptr)
 {
@@ -35,7 +35,7 @@ int	ft_atoi(const char *nptr)
 	return (result * sign);
 }
 
-void	send_signal(int pid, int c)
+static void	send_signal(int pid, int c)
 {
 	int	x;
 	int	buffer[8];
@@ -52,7 +52,7 @@ void	send_signal(int pid, int c)
 	while (++x < 8)
 	{
 		kill(pid, buffer[x]);
-		usleep(50);
+		usleep(100);
 	}
 }
 
@@ -64,18 +64,16 @@ int	main(int argc, char *argv[])
 
 	if (argc != 3)
 	{
-		printf("Argument error\n");
+		ft_printf("%sArgument error:%s ", BHRE, BHBL);
+		ft_printf("Please provide the correct %s", BHGR);
+		ft_printf("server-PID%s and your %smessage%s!%s\n", BHBL, BHMA);
+		ft_printf("message%s!%s\n", BHBL, CR);
 		return (-1);
 	}
 	pid = ft_atoi(argv[1]);
 	str = argv[2];
-	if (str == NULL)
-	{
-		send_signal(pid, '\n');
-		return (0);
-	}
 	x = -1;
-	while (str[++x] != '\0')
+	while (str != NULL && str[++x] != '\0')
 		send_signal(pid, str[x]);
 	send_signal(pid, '\n');
 	return (0);

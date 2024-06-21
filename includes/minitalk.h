@@ -6,7 +6,7 @@
 /*   By: npentini <npentini@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 23:14:56 by npentini          #+#    #+#             */
-/*   Updated: 2024/06/20 04:20:34 by npentini         ###   ########.fr       */
+/*   Updated: 2024/06/21 05:50:21 by npentini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <signal.h>
 # include <stdlib.h>
 # include <sys/types.h>
-# include <stdio.h>
+# include "../ft_printf/includes/ft_printf.h"
+# include "./mycolors.h"
 
 #endif
