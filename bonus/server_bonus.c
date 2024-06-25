@@ -6,7 +6,7 @@
 /*   By: npentini <npentini@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 23:17:59 by npentini          #+#    #+#             */
-/*   Updated: 2024/06/21 04:44:51 by npentini         ###   ########.fr       */
+/*   Updated: 2024/06/25 23:24:06 by npentini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	main(void)
 		return (-1);
 	}
 	ft_printf("\n%sLets talk mini with%s ", BBU, CR);
-	ft_printf("%sMINITALK!!!%s\n\n", BHMA, CR);
+	ft_printf("%sMINITALK!!! (BONUS EDITION)%s\n\n", BHMA, CR);
 	ft_printf("🖥  %sServer PID: %s%d%s\n\n", BHBL, BHGR, getpid(), CR);
 	ft_printf("💬 %sRecieved Messages:%s\n\n", BHBL, CR);
 	while (1)

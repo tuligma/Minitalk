@@ -6,7 +6,7 @@
 /*   By: npentini <npentini@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/19 23:17:59 by npentini          #+#    #+#             */
-/*   Updated: 2024/06/21 04:05:11 by npentini         ###   ########.fr       */
+/*   Updated: 2024/06/25 22:11:25 by npentini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,7 @@ static void	signal_handler(int signal)
 	signal_count++;
 	if (signal_count == 8)
 	{
-		ft_printf("%s", BHBL);
 		write(STDOUT_FILENO, &buffer, 1);
-		ft_printf("%s", CR);
 		buffer = 0;
 		signal_count = 0;
 	}
@@ -50,7 +48,7 @@ int	main(void)
 		ft_printf("😫 %s[ sigaction() returns -1 ]%s", BHBL, CR);
 		return (-1);
 	}
-	ft_printf("\n%sLets talk mini with%s", BBU, CR);
+	ft_printf("\n%sLets talk mini with%s ", BBU, CR);
 	ft_printf("%sMINITALK!!!%s\n\n", BHMA, CR);
 	ft_printf("🖥  %sServer PID: %s%d%s\n\n", BHBL, BHGR, getpid(), CR);
 	ft_printf("💬 %s Recieved Messages:%s\n\n", BHBL, CR);

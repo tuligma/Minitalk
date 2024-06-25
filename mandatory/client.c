@@ -6,7 +6,7 @@
 /*   By: npentini <npentini@student.42abudhabi.a    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/20 03:08:45 by npentini          #+#    #+#             */
-/*   Updated: 2024/06/21 04:11:44 by npentini         ###   ########.fr       */
+/*   Updated: 2024/06/25 22:22:07 by npentini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,21 +38,20 @@ int	ft_atoi(const char *nptr)
 static void	send_signal(int pid, int c)
 {
 	int	x;
-	int	buffer[8];
+	int	buffer;
+	int sig;
 
 	x = 8;
+	sig = 0;
 	while (--x >= 0)
 	{
-		if (c % 2 == 0)
-			buffer[x] = SIGUSR1;
+		buffer = (c >> x) & 1;
+		if (buffer == 0)
+			sig = SIGUSR1;
 		else
-			buffer[x] = SIGUSR2;
-		c /= 2;
-	}
-	while (++x < 8)
-	{
-		kill(pid, buffer[x]);
-		usleep(100);
+			sig = SIGUSR2;
+		kill(pid, sig);
+		usleep(150);
 	}
 }
 
